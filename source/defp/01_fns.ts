@@ -20,8 +20,8 @@ export const curry2 =
   <A, B, C>(
     fn: (a: A, b: B) => C
   ) =>
-  ( a: A) =>
-  (b: B): C =>
+  ( a: A ) =>
+  ( b: B ): C =>
   fn(a, b)
 
 export const curry3 =
@@ -371,3 +371,21 @@ type FlowFn = {
   )
   : (...a: A) => J
 }
+
+export const flow: FlowFn
+=
+  <
+    AS extends unknown[]
+  , B
+  >(
+    a: (...as: AS) => B
+  , ...fns: UnknownFn[]
+  )
+  : (...as: AS) =>
+    unknown => {
+      return (...args: AS): unknown =>
+        fns.reduce(
+          (b: unknown, f) => f(b)
+        , a(...args)
+      )
+    }
