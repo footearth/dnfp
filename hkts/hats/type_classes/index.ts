@@ -1,25 +1,4 @@
-import {
-  Fn
-, UnknownFn
-, Nil
-, Lazy
-, Predicate
-, Refinement
-, Ordering
-, _
-, _0
-, _1
-, _2
-, _3
-, _4
-, _5
-, _6
-, _7
-, _8
-, _9
-, Fix
-, $
-} from './01_types'
+import * as types from './01_types'
 
 import {
   LS
@@ -153,26 +132,7 @@ from './pipeline'
 
 export {
 // 01_types
-  Fn
-, UnknownFn
-, Nil
-, Lazy
-, Predicate
-, Refinement
-, Ordering
-, _
-, _0
-, _1
-, _2
-, _3
-, _4
-, _5
-, _6
-, _7
-, _8
-, _9
-, Fix
-, $
+  types
 // 02_types
 , LS
 , AddLength
