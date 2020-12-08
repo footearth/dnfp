@@ -6,8 +6,8 @@ capitalize = (word) =>
 
 hello = (name) =>
   "Hello " +
-  capitalize name
-
+  capitalize name 
+   
 console.log hello "john"
 console.log hello "Sarah"
 console.log hello "kai"

@@ -16,20 +16,24 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 ```fish
 function drake
-  deno run -A Drakefile.ts $argv
+  yarn coffee -ctb ./Drakefile.coffee
+  deno run -A ./Drakefile.js $argv
+  rm ./Drakefile.js
 end
 ```
 
 ＊* bash
 
 ```bash
-alias drake='_a(){ deno run -A Drakefile.ts $@;};_a $1'
+alias drake='_a(){
+  yarn coffee -ctb ./Drakefile.coffee
+  deno run -A Drakefile.js $@;
+  };_a $1'
 ```
 
 ＊* compile
 
 ```bash
-yarn coffee -ctb -o ./src ./source
-mv ./src/example/01_HelloWorld.js ./src/example/01_HelloWorld.ts
+yarn coffee -ctb ./Drakefile.coffee
 drake
 ```
